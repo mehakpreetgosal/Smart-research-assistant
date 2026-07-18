@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Research Assistant</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Markdown Renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Background Blur -->
+    <div class="background-blur"></div>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+
+            🔬 AI Research Assistant
+
+        </div>
+
+        <button id="themeToggle">
+
+            🌙
+
+        </button>
+
+    </nav>
+
+    <!-- Main Container -->
+
+    <main>
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <h1>
+
+                AI Research Assistant
+
+            </h1>
+
+            <p>
+
+                Search the web, analyze trusted sources, and generate professional research reports in seconds.
+
+            </p>
+
+        </section>
+
+        <!-- Search Card -->
+
+        <section class="search-card">
+
+            <textarea
+
+                id="query"
+
+                placeholder="Ask anything...
+Example: Impact of Artificial Intelligence on Healthcare"
+
+                rows="4"
+
+            ></textarea>
+
+            <div class="controls">
+
+                <select id="mode">
+
+                    <option>General</option>
+
+                    <option>Technical</option>
+
+                    <option>Academic</option>
+
+                    <option>Business</option>
+
+                    <option>Latest News</option>
+
+                </select>
+
+                <button id="researchBtn">
+
+                    🔍 Start Research
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Loading -->
+
+        <section
+
+            id="loading"
+
+            class="loading hidden"
+
+        >
+
+            <div class="spinner"></div>
+
+            <h3 id="loadingText">
+
+                Searching the Web...
+
+            </h3>
+
+        </section>
+
+        <!-- Stats -->
+
+        <section
+
+            id="stats"
+
+            class="stats hidden"
+
+        >
+
+            <div class="stat-card">
+
+                <h4>
+
+                    ⏱ Time
+
+                </h4>
+
+                <p id="time">
+
+                    0 s
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h4>
+
+                    📄 Words
+
+                </h4>
+
+                <p id="words">
+
+                    0
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h4>
+
+                    📚 Sources
+
+                </h4>
+
+                <p id="sourcesCount">
+
+                    0
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h4>
+
+                    ⌛ Reading
+
+                </h4>
+
+                <p id="reading">
+
+                    0 min
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Report -->
+
+        <section
+
+            id="reportContainer"
+
+            class="report hidden"
+
+        >
+
+            <div class="report-header">
+
+                <h2>
+
+                    Research Report
+
+                </h2>
+
+            <div class="report-buttons">
+
+    <button id="copyBtn">
+        📋 Copy
+    </button>
+
+    <button id="downloadPDF">
+        📄 PDF
+    </button>
+
+    <button id="downloadTXT">
+        📄 TXT
+    </button>
+
+    <button id="clearBtn">
+        ✨ New Research
+    </button>
+
+</div>
+
+            </div>
+
+            <div
+
+                id="report"
+
+                class="markdown"
+
+            >
+
+            </div>
+
+        </section>
+
+        <!-- Sources -->
+
+        <section
+
+            id="sourcesSection"
+
+            class="sources hidden"
+
+        >
+
+            <h2>
+
+                Sources
+
+            </h2>
+
+            <div
+
+                id="sources"
+
+                class="sources-grid"
+
+            >
+
+            </div>
+
+        </section>
+
+        <!-- History -->
+
+        <section class="history">
+
+            <h2>
+
+                Recent Searches
+
+            </h2>
+
+            <div
+
+                id="history"
+
+                class="history-list"
+
+            >
+
+                <p>
+
+                    No searches yet.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        Built with
+
+        ❤️ Flask • Tavily • Groq
+
+    </footer>
+
+    <!-- JS -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
